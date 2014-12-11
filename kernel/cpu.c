@@ -519,6 +519,10 @@ out:
 	return ret;
 }
 
+#ifndef CONFIG_SCHED_BFS
+					|| policy == SCHED_DEADLINE
+#endif
+
 int cpu_up(unsigned int cpu)
 {
 	int err = 0;
