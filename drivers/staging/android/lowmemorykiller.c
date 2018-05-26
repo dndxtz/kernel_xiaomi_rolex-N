@@ -47,7 +47,7 @@
 
 #define CONFIG_CONVERT_ADJ_TO_SCORE_ADJ
 
-static u32 lowmem_debug_level = 1;
+static u32 lowmem_debug_level = 0;
 static short lowmem_adj[6] = {
 	0,
 	1,
