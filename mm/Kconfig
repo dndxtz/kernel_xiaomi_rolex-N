@@ -698,3 +698,19 @@ config PROCESS_RECLAIM
 	 (addr, addr + size-bytes) of the process.
 
 	 Any other vaule is ignored.
+
+config DIRTY_RATIO
+	int "Default dirty ratio for writeback"
+	default 7
+	help
+	  The percentage of memory which may be used for dirty pages before the
+	  kernel commits dirty data to disk when another process performs a
+	  write call.
+
+config DIRTY_BACKGROUND_RATIO
+	int "Default background dirty ratio for writeback"
+	default 3
+	help
+	  The percentage of memory which may be used for dirty pages before the
+	  kernel's background writeback threads start committing the dirty data
+	  to disk.
