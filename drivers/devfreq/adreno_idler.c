@@ -38,7 +38,7 @@
    Any workload higher than this will be treated as a non-idle workload.
    Adreno idler will more actively try to ramp down the frequency
    if this is set to a higher value. */
-static unsigned long idleworkload = 7000;
+static unsigned long idleworkload = 5000;
 module_param_named(adreno_idler_idleworkload, idleworkload, ulong, 0664);
 
 /* Number of events to wait before ramping down the frequency.
@@ -93,7 +93,7 @@ EXPORT_SYMBOL(adreno_idler);
 
 static int __init adreno_idler_init(void)
 {
-	pr_info("adreno_idler: version %d.%d by arter97\n",
+	pr_info("Adreno Idler: version %d.%d by arter97\n",
 		 ADRENO_IDLER_MAJOR_VERSION,
 		 ADRENO_IDLER_MINOR_VERSION);
 
@@ -108,7 +108,7 @@ static void __exit adreno_idler_exit(void)
 module_exit(adreno_idler_exit);
 
 MODULE_AUTHOR("Park Ju Hyung <qkrwngud825@gmail.com>");
-MODULE_DESCRIPTION("'adreno_idler - A powersaver for Adreno TZ"
+MODULE_DESCRIPTION("'Adreno Idler - A powersaver for Adreno TZ"
 	"Control idle algorithm for Adreno GPU series");
 MODULE_LICENSE("GPL");
 
