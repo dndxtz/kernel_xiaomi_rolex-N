@@ -29,4 +29,3 @@ obj-$(CONFIG_DEVFREQ_SPDM) 		+= devfreq_spdm.o devfreq_spdm_debugfs.o
 
 # DEVFREQ Boost
 obj-$(CONFIG_DEVFREQ_BOOST)		+= devfreq_boost.o
->>>>>>> a0302600a044... devfreq: Introduce devfreq boost driver
