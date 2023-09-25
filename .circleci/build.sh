@@ -41,7 +41,7 @@ function finerr() {
 
 # Env
 ZIP_DIR=$KERNEL_DIR/AnyKernel
-VENDOR_MODULEDIR="$ZIP_DIR/modules/vendor/lib/modules"
+VENDOR_MODULEDIR="$ZIP_DIR/modules/system/lib/modules"
 STRIP="aarch64-linux-android-strip"
 
 # Do Wifi modules
