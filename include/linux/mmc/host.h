@@ -518,9 +518,9 @@ struct mmc_host {
 	struct mmc_supply	supply;
 
 	struct dentry		*debugfs_root;
-#ifdef CONFIG_MMC_ERROR_STATUS
-		 bool			err_occurred;
-#endif
+
+	bool			err_occurred;
+
 	struct mmc_async_req	*areq;		/* active async req */
 	struct mmc_context_info	context_info;	/* async synchronization info */
 
