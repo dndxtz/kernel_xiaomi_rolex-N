@@ -10,7 +10,7 @@ token=728234533:AAHgxu6Y_PsExZNJoYiDgC74K_J-Ok0OaUk
 ZIP_NAME="IdkSerKernel-MIUI-Rolex.zip"
 KERNEL_DIR=$(pwd)
 TC=$(pwd)/gcc/bin/aarch64-linux-android-
-IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
+IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz
 TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
 export ARCH=arm64
@@ -69,7 +69,7 @@ function compile() {
             exit 1
         fi
     wifi_modules
-    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel/
+    cp out/arch/arm64/boot/Image.gz AnyKernel/
 }
 # Zipping
 function zipping() {
