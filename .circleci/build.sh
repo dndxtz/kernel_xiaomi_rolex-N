@@ -8,9 +8,9 @@ chat_id=-1001944300223
 token=728234533:AAHgxu6Y_PsExZNJoYiDgC74K_J-Ok0OaUk
 
 ZIP_NAME="IdkSerKernel-MIUI-Rolex-${tanggal}.zip"
+tanggal=$(TZ=Asia/Jakarta date "+%Y%m%d-%H%M")
 KERNEL_DIR=$(pwd)
-TC=$(pwd)/gcc/bin/aarch64-linux-android-
-IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
+IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz
 TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
 export ARCH=arm64
@@ -41,7 +41,7 @@ function finerr() {
 
 # Env
 ZIP_DIR=$KERNEL_DIR/AnyKernel
-VENDOR_MODULEDIR="$ZIP_DIR/modules/vendor/lib/modules"
+VENDOR_MODULEDIR="$ZIP_DIR/modules/system/lib/modules"
 STRIP="aarch64-linux-android-strip"
 
 # Do Wifi modules
@@ -63,13 +63,13 @@ function wifi_modules() {
 # Compile plox
 function compile() {
     make -s -C "$(pwd)" -j"$(nproc)" O=out S88503AC1-perf_defconfig
-    make -C $(pwd) CROSS_COMPILE="${TC}" O=out -j8
+    make -C $(pwd) CROSS_COMPILE=aarch64-linux-android- O=out -j8
         if ! [ -a "$IMAGE" ]; then
             finerr
             exit 1
         fi
     wifi_modules
-    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel/
+    cp out/arch/arm64/boot/Image.gz AnyKernel/
 }
 # Zipping
 function zipping() {
