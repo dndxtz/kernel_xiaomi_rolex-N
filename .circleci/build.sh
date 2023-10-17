@@ -7,15 +7,15 @@ echo "Done"
 chat_id=-1001944300223
 token=728234533:AAHgxu6Y_PsExZNJoYiDgC74K_J-Ok0OaUk
 
-ZIP_NAME="IdkSerKernel-MIUI-Rolex-${tanggal}.zip"
 tanggal=$(TZ=Asia/Jakarta date "+%Y%m%d-%H%M")
+ZIP_NAME="Fate-MIUI-Rolex-${tanggal}.zip"
 KERNEL_DIR=$(pwd)
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz
 TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
 export ARCH=arm64
 export KBUILD_BUILD_USER=dndxtz
-export KBUILD_BUILD_HOST=DESKTOP-ET3IKPU
+export KBUILD_BUILD_HOST=DESKTOP-9ODEROB
 export PATH="${PATH}:$(pwd)/gcc/bin"
 git config --global user.email "dindascape@gmail.com"
 git config --global user.name "dndxtz"
