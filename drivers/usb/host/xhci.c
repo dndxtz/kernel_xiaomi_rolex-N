@@ -3840,8 +3840,6 @@ static int xhci_setup_device(struct usb_hcd *hcd, struct usb_device *udev,
 	u64 temp_64;
 	struct xhci_command *command = NULL;
 
-	mutex_lock(&xhci->mutex);
-
 	if (xhci->xhc_state)	/* dying, removing or halted */
 		return -EINVAL;
 
