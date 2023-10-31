@@ -563,7 +563,6 @@ fault:
 inval:
 		kfree(uref_multi);
 		return -EINVAL;
-	}
 }
 
 static noinline int hiddev_ioctl_string(struct hiddev *hiddev, unsigned int cmd, void __user *user_arg)
