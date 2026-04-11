@@ -1,18 +1,34 @@
 version: 2.1
+
 jobs:
   compile:
-   docker:
+    docker:
       - image: z4nyx/docker:latest
-   steps:
+    working_directory: ~/kernel
+    environment:
+      KBUILD_BUILD_USER: dndxtz
+      KBUILD_BUILD_HOST: circleci
+    steps:
       - run:
+          name: Git config
           command: |
-           git config --global user.name "dndxtz"
-           git config --global user.email "dindascape@gmail.com"
-           git config --global color.ui false
-           git clone --depth=1 https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} .
-           bash .circleci/build.sh
+            git config --global user.name "${GIT_USER}"
+            git config --global user.email "${GIT_EMAIL}"
+            git config --global color.ui false
+
+      - run:
+          name: Clone kernel source
+          command: |
+            git clone --depth=1 \
+              https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} \
+              -b ${CIRCLE_BRANCH} .
+
+      - run:
+          name: Build kernel
+          no_output_timeout: 45m
+          command: bash .circleci/build.sh
+
 workflows:
-  version: 2.1
   cooking:
     jobs:
       - compile
